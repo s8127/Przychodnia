@@ -1,4 +1,4 @@
-package com.pl.przychodnia;
+package com.przychodnia.main;
 
 public class Main {
 
