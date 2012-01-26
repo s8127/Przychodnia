@@ -1,6 +1,7 @@
 package com.przychodnia.main;
 
 public class Lekarz {
+	private int id;
 	private String imie;
 	private String nazwisko;
 	private String specjalizacja;
@@ -10,6 +11,20 @@ public class Lekarz {
 		this.nazwisko=nazwisko;
 		this.specjalizacja=specjalizacja;
 	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public String getImie() {
 		return imie;
