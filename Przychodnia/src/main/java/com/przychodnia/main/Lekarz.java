@@ -1,10 +1,14 @@
 package com.przychodnia.main;
 
+import java.util.List;
+
 public class Lekarz {
 	private int id;
 	private String imie;
 	private String nazwisko;
 	private String specjalizacja;
+	private List<Pacjent> listaPacjentow;
+	
 	
 	public Lekarz(String imie, String nazwisko, String specjalizacja) {
 		this.imie=imie;
@@ -49,5 +53,19 @@ public class Lekarz {
 	public void setSpecjalizacja(String specjalizacja) {
 		this.specjalizacja = specjalizacja;
 	}
+
+
+
+	public List<Pacjent> getListaPacjentow() {
+		return listaPacjentow;
+	}
+
+
+
+	public void setListaPacjentow(List<Pacjent> listaPacjentow) {
+		this.listaPacjentow = listaPacjentow;
+	}
+	
+	
 
 }

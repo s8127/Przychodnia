@@ -9,27 +9,38 @@ import org.junit.Test;
 
 import com.przychodnia.db.DBLekarz;
 import com.przychodnia.db.DBManager;
+import com.przychodnia.db.DBPacjent;
 import com.przychodnia.main.Lekarz;
+import com.przychodnia.main.Pacjent;
 
 public class TestDataBase {
 	
 
 	private static DBManager db;
 	private static DBLekarz dbl;
+	private static DBPacjent dbp;
 	private static Lekarz l1;
 	private static Lekarz l2;
 	private static Lekarz l3;
+	private static Pacjent p1;
+	private static Pacjent p2;
+	private static Pacjent p3;
+	private static Pacjent p4;
 
 	@BeforeClass
 	public static void stworzBaze() throws SQLException{
 		db=new DBManager();
 		dbl = new DBLekarz(db.getConnection());
+		dbp= new DBPacjent(db.getConnection());
 		
 		l1 = new Lekarz("Jan", "Nowak", "kardiolog");
 		l2 = new Lekarz("Tomasz", "Kowalski", "okulista");
 		l3 = new Lekarz("Stefan", "Czarnecki", "neurolog");
 		
-		
+		p1 = new Pacjent("Michal","Michalski",55);
+		p2 = new Pacjent("Karol","Karolski",33);
+		p3 = new Pacjent("Maciej","Maciejski",22);
+		p4 = new Pacjent("Krzysztof","Krzysztofski",34);
 	}
 	
 	@Test
@@ -40,6 +51,29 @@ public class TestDataBase {
 		
 		assertEquals(3, dbl.znajdzWszystkichLekarzy().size());
 		
+	}
+	
+	
+	@Test
+	public void testDodajPacjenta() throws SQLException{
+		dbp.dodajPacjenta(p1);
+		dbp.dodajPacjenta(p2);
+		dbp.dodajPacjenta(p3);
+		dbp.dodajPacjenta(p4);
+		assertEquals(4, dbp.znajdzWszystkichPacjentow().size());
+		
+	}
+	
+	@Test
+	public void testZnajdzLekarza() throws SQLException{
+		String imie = "Jan";
+		assertSame(imie,dbl.znajdzLekarzaPoImieniu(imie).getImie());
+	}
+	
+	@Test
+	public void testZnajdzPacjenta() throws SQLException{
+		String imie = "Karol";
+		assertSame(imie,dbp.znajdzPacjentaPoImieniu(imie).getImie());
 	}
 	
 	
