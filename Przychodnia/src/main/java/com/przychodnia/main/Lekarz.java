@@ -1,5 +1,6 @@
 package com.przychodnia.main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lekarz {
@@ -14,6 +15,7 @@ public class Lekarz {
 		this.imie=imie;
 		this.nazwisko=nazwisko;
 		this.specjalizacja=specjalizacja;
+		this.listaPacjentow = new ArrayList<Pacjent>();
 	}
 	
 	

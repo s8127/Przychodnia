@@ -86,7 +86,7 @@ public class DBPacjent {
 		updateWiekStmt.executeUpdate();
 	}
 	
-	public void zmienLekarza(Pacjent pacjent, Lekarz lekarz) throws SQLException{
+	public void ustawLekarza(Pacjent pacjent, Lekarz lekarz) throws SQLException{
 		
 		updateLekarzStmt.setInt(1, lekarz.getId());
 		updateLekarzStmt.setString(2, pacjent.getImie());
