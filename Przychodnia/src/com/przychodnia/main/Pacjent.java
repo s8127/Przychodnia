@@ -1,19 +1,29 @@
 package com.przychodnia.main;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Pacjent {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Size(min=2, max =20)
 	private String imie;
+	@Size(min=2, max =20)
 	private String nazwisko;
 	private int wiek;
-	private int lekarzId;
 
 	public Pacjent(String imie, String nazwisko, int wiek) {
 		this.imie = imie;
 		this.nazwisko = nazwisko;
 		this.wiek = wiek;
 	}
-	
-	
+
+
 
 	public int getId() {
 		return id;
@@ -51,12 +61,5 @@ public class Pacjent {
 		this.wiek = wiek;
 	}
 
-	public int getLekarzId() {
-		return lekarzId;
-	}
-
-	public void setLekarzId(int lekarzId) {
-		this.lekarzId = lekarzId;
-	}
 
 }

@@ -1,24 +1,40 @@
 package com.przychodnia.main;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Lekarz {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Size(min=2, max =20)
 	private String imie;
+	@Size(min=2, max =20)
 	private String nazwisko;
+	@Size(min=2, max =20)
 	private String specjalizacja;
 	private List<Pacjent> listaPacjentow;
 	
 	
+	
+	public Lekarz() {
+	}
+
+
 	public Lekarz(String imie, String nazwisko, String specjalizacja) {
 		this.imie=imie;
 		this.nazwisko=nazwisko;
 		this.specjalizacja=specjalizacja;
 		this.listaPacjentow = new ArrayList<Pacjent>();
 	}
-	
-	
+
+
 
 	public int getId() {
 		return id;
@@ -67,7 +83,7 @@ public class Lekarz {
 	public void setListaPacjentow(List<Pacjent> listaPacjentow) {
 		this.listaPacjentow = listaPacjentow;
 	}
-	
-	
+
+
 
 }
