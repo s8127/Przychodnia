@@ -2,10 +2,13 @@ package com.przychodnia.main;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -19,6 +22,7 @@ public class Lekarz {
 	private String nazwisko;
 	@Size(min=2, max =20)
 	private String specjalizacja;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Pacjent> listaPacjentow;
 	
 	

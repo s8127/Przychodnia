@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{lekarzBean.lekarze}" var="item">
+				<f:facet name="header">#{msg.showlekarzLabel}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.lekarzNameLabel}</f:facet>
+					<h:outputText value="#{item.imie}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.lekarzNazwiskoLabel}</f:facet>
+					<h:outputText value="#{item.nazwisko}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value="#{msg.actionDelete}"
+						action="#{lekarzBean.deletelekarz}" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
