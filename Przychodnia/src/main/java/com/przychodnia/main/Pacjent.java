@@ -4,9 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.Size;
 
 @Entity
+@NamedQueries({ 
+	@NamedQuery(name = "pacjent.all", query = "Select p from Pacjent p")
+})
 public class Pacjent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +21,11 @@ public class Pacjent {
 	@Size(min=2, max =20)
 	private String nazwisko;
 	private int wiek;
+
+	public Pacjent() {
+	}
+
+
 
 	public Pacjent(String imie, String nazwisko, int wiek) {
 		this.imie = imie;

@@ -12,7 +12,7 @@
 		  </h:commandLink>
 		</li>
 		<li>
-		  <h:commandLink action="add?faces-redirect=true">
+		  <h:commandLink action="addLekarz?faces-redirect=true">
 			<h:outputText value="#{msg.addLekarzLabel}" />
 		  </h:commandLink></li>
 		<li>
@@ -21,8 +21,22 @@
 		  </h:commandLink>
 		</li>
 		<li>
-		  <h:commandLink action="delete">
+		  <h:commandLink action="deleteLekarz">
 			 <h:outputText value="#{msg.deleteLekarzLabel}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="addPacjent?faces-redirect=true">
+			<h:outputText value="#{msg.addPacjentLabel}" />
+		  </h:commandLink></li>
+		<li>
+		  <h:commandLink action="pokazPacjentow?faces-redirect=true">
+			 <h:outputText value="#{msg.showPacjentLabel}" />
+		  </h:commandLink>
+		</li>
+		<li>
+		  <h:commandLink action="deletePacjent">
+			 <h:outputText value="#{msg.deletePacjentLabel}" />
 		  </h:commandLink>
 		</li>
 	</ul>

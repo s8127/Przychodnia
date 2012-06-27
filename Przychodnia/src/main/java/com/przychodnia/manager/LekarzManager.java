@@ -1,5 +1,7 @@
 package com.przychodnia.manager;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,5 +20,9 @@ public class LekarzManager {
 		em.remove(l);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Lekarz> getAllLekarz(){
+		return em.createNamedQuery("lekarz.all").getResultList();
+	}
 
 }

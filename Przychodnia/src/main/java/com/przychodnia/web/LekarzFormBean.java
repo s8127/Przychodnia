@@ -1,6 +1,7 @@
 package com.przychodnia.web;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.ListDataModel;
@@ -49,5 +50,8 @@ public class LekarzFormBean implements Serializable{
 		return "pokazLekarzy";
 	}
 	
+	public List<Lekarz> getAllLekarz(){
+		return lm.getAllLekarz();
+	}
 
 }
